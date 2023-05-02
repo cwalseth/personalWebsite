@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callie Walseth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- style content starts here -->
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        body {
+          font-family: Verdana, sans-serif;
+          margin: 0;
+        }
+        .mySlides {
+          display: none;
+        }
+        img {
+          vertical-align: middle;
+        }
+  
+        .slideshow-container {
+          width: 55vw;
+          height: auto;
+          position: relative;
+          margin: auto;
+        }
+  
+        .prev,
+        .next {
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          width: auto;
+          padding: 16px;
+          margin-top: -22px;
+          color: white;
+          font-weight: bold;
+          font-size: 18px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+        }
+  
+        .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
+          background-color: black;
+        }
+        .prev:hover,
+        .next:hover {
+          background-color: rgba(82, 80, 80, 0.8);
+        }
+        .text {
+          color: black;
+          font-size: 15px;
+          padding: 8px 12px;
+          position: absolute;
+          bottom: 8px;
+          width: 100%;
+          text-align: center;
+        }
+  
+        .numbertext {
+          color: black;
+          font-size: 12px;
+          padding: 8px 12px;
+          position: absolute;
+          top: 0;
+        }
+  
+        .dot {
+          cursor: pointer;
+          height: 15px;
+          width: 15px;
+          margin: 0 2px;
+          background-color: black;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+        }
+  
+        .active,
+        .dot:hover {
+          background-color: #717171;
+        }
+  
+        .fade {
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1.5s;
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+      </style>
+    <!-- style content ends here -->
+</head>
+
+<body>
+    <div id="container-web">
+    <header>
+        <nav>
+            <span id="logo">Callie Walseth</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="work.html">Portfolio</a></li> -->
+                <div class="dropdown">
+                    <button class="dropbtn">Portfolio</button>
+                    <div class="dropdown-content">
+                      <a href="design.html">Design</a>
+                      <a href="web.html">Web Design</a>
+                    </div>
+                  </div>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <img class="web" id="mobile" src="images/web/Furniture.png" alt="#" style="height: 1030px; width: auto;">
+    <figcaption class="fig-cap" style="text-align: center; font-size: 25px;">Follow the link below to view the fully interactive Adobe XD project on the web. Items highlighted in red will lead to another page.</figcaption>
+    <a href="https://xd.adobe.com/view/ebaf9f4b-3fc9-40db-a28b-f1a2660e6796-befc/" style="position:absolute; color:black">Link to Project</a>
+   
+
+    <img class="web" id="mobile" src="images/web/1-mobileApp.jpg" alt="#" style="height: 1200px; width: auto;">
+    <!-- <figcaption class="fig-cap" style="text-align: center;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, rerum.</figcaption> -->
+    
+    <img class="web" id="axure" src="images/web/2-Axure.jpg" alt="#" style="height: 1200px; width: auto;">
+    
+    
+    <img class="web" id="web-3" src="images/web/3-web.png" alt="#" style="height: 1800px; width: auto;">
+    
+    <img class="web" id="web-4" src="images/web/4-web.png" alt="#" style="height: 835px; width: auto;">
+    
+    <img class="web" id="web-5" src="images/web/5-Web.png" alt="#" style="height: 800px; width: auto;">
+    
+    <img class="web" id="web-6" src="images/web/6-web.png" alt="#" style="height: 885px; width: auto;">
+
+    <img class="web" id="web-7" src="images/web/7-web.png" alt="#" style="height: 800px; width: auto;">
+    
+
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+<footer>
+    <span>Callie Walseth &copy; 2023</span>
+</footer>
+
+</html>

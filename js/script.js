@@ -1,69 +1,58 @@
-var FadeTransition = Barba.BaseTransition.extend({
-    start: function() {
-      /**
-       * This function is automatically called as soon the Transition starts
-       * this.newContainerLoading is a Promise for the loading of the new container
-       * (Barba.js also comes with an handy Promise polyfill!)
-       */
-  
-      // As soon the loading is finished and the old page is faded out, let's fade the new page
-      Promise
-        .all([this.newContainerLoading, this.fadeOut()])
-        .then(this.fadeIn.bind(this));
-    },
-  
-    fadeOut: function() {
-      /**
-       * this.oldContainer is the HTMLElement of the old Container
-       */
-  
-      return $(this.oldContainer).animate({ opacity: 0 }).promise();
-    },
-  
-    fadeIn: function() {
-      /**
-       * this.newContainer is the HTMLElement of the new Container
-       * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
-       * Please note, newContainer is available just after newContainerLoading is resolved!
-       */
-      // $(window).scrollTop(0);
-      var _this = this;
-      var $el = $(this.newContainer);
-  
-      $(this.oldContainer).hide();
-  
-      $el.css({
-        visibility : 'visible',
-        opacity : 0
-      });
-  
-      $el.animate({ opacity: 1 }, 400, function() {
-        /**
-         * Do not forget to call .done() as soon your transition is finished!
-         * .done() will automatically remove from the DOM the old Container
-         */
-  
-        _this.done();
-      });
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+$(document).ready(function () {
+    const body = $("body");
+    const content = $(".content");
+    const loading = $("#loading");
+    const loadingSVG = $("#loading > SVG");
+    const loadingH1 = $("#loading > h1");
+    const container1 = $('.container1');
+    const nav = $('.container1 > nav');
+    const navLinks = $('.container1 > nav > ul > li');
+    const redBox = $('#one');
+    
+    const timeOut1 = setTimeout(preloader, 100);
+    const timeOut2 = setTimeout(postloader, 2200); 
+
+    body.on("load", function () {
+        preloader();
+    })
+
+    function preloader() {
+
+        loading.addClass('displayed');
+        loading.removeClass('nodisplay');
+        let tl = gsap.timeline();
+
+        // gsap.from(
+        tl.from(
+            '.container1', {
+            'backgroundColor': '#000',
+            autoAlpha: 0,
+            y: -200,
+            ease: "bounce.out", 
+            duration: 0.5
+        });
+    };
+    function postloader() {
+        let tl = gsap.timeline({});
+        tl.to(loadingH1, {x:"-200%", duration:1, autoAlpha:0});
+        tl.to(loadingSVG, {y:"-200%", duration:1, autoAlpha:0});
+        
+        tl.to(nav, {autoAlpha:0.75, duration:0.5})
+        tl.from(navLinks, {opacity:0, stagger:0.2})
+        tl.to(loading, {"display":"none", autoAlpha:0, duration:0.2, });
+        loading.remove()
     }
-  });
-  
-  /**
-   * Next step, you have to tell Barba to use the new Transition
-   */
-  
-  Barba.Pjax.getTransition = function() {
-    /**
-     * Here you can use your own logic!
-     * For example you can use different Transition based on the current page or link...
-     */
-    $(window).scrollTop(0);
-    //allows page to always load at the top, when we add addtional content
-  var tl = new TimelineMax();
-  tl
-  .to(".screen-wipe-top", 0.5, {y: "50%", repeat: 1, yoyo:true})
-  .to(".screen-wipe-bottom", 0.5, {y: "-50%", repeat: 1, yoyo:true},"-=1")
-    return FadeTransition;
-  };
-  
-  Barba.Pjax.start();
+    
+tl3.fromTo(redBox, {
+    x:"-100%",
+    backgoundColor: "red",
+    duration: 2
+},{
+    x: "0%",
+    backgoundColor: "blue"
+})
+
+});
